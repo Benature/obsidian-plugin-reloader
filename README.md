@@ -3,8 +3,10 @@
 Manually reload plugins on command palette or hotkey, or you can bind the command to ribbon via [Commander](https://obsidian.md/plugins?id=cmdr).
 
 use cases:
-- reload a plugin for force update or something else.
-  - e.g. as a workaround before [Toggl Track](https://github.com/mcndt/obsidian-toggl-integration) support manual reload button ([#139](https://github.com/mcndt/obsidian-toggl-integration/issues/139#issuecomment-1958810386))
+- Reload a plugin for force update or something else.
+  - e.g. as a workaround before [Toggl Track](https://github.com/mcndt/obsidian-toggl-integration) support manual reload button ([#139](https://github.com/mcndt/obsidian-toggl-integration/issues/139#issuecomment-1959183577))
+- First initialization of a plugin requires reload.
+- Some plugins require reload to ensure new configurations take effect.
 
 
 
