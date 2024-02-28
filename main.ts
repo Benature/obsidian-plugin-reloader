@@ -2,15 +2,12 @@ import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, But
 
 
 
-export default class MetadataIcon extends Plugin {
+export default class Reloader extends Plugin {
 
 	async onload() {
-		console.log("onload")
 		// @ts-ignore
 		const plugins = this.app.plugins.plugins;
-		console.log(plugins)
 		for (let name in plugins) {
-			console.log(name)
 			try {
 				const m = plugins[name].manifest;
 				this.addCommand({
