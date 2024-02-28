@@ -9,8 +9,15 @@ use cases:
 - Some plugins require reload to ensure new configurations take effect.
 
 
-
 ## Install
+
+### Install from plugin community
+
+[click to install](https://obsidian.md/plugins?id=plugin-reloader), or:
+
+- Open Obsidian and go to Settings > Community Plugins
+- Search for `Plugin Reloader`
+- Click `Install`
 
 ### Install by [BRAT Plugin](https://obsidian.md/plugins?id=obsidian42-brat)
 
