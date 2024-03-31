@@ -32,7 +32,7 @@ export default class Reloader extends Plugin {
 					console.error(e)
 				}
 			}
-		}, 1000 * 60)
+		}, 1000)
 	}
 
 	onunload() { }
