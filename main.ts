@@ -22,6 +22,14 @@ export default class Reloader extends Plugin {
 				console.error(e)
 			}
 		}
+
+		this.addCommand({
+			id: `refresh`,
+			name: `Refresh plugin list`,
+			callback: async () => {
+				await this.reloadPlugin(`plugin-reloader`);
+			}
+		})
 	}
 
 	onunload() { }
