@@ -1,10 +1,10 @@
-import { App, Editor, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, ButtonComponent, Setting, debounce } from 'obsidian';
+import { Notice, Plugin } from 'obsidian';
 
 
 
 export default class Reloader extends Plugin {
 
-	async onload() {
+	onload(): void {
 
 		this.addCommand({
 			id: `refresh`,
@@ -17,7 +17,7 @@ export default class Reloader extends Plugin {
 		window.setTimeout(() => {
 			// @ts-ignore
 			const plugins = this.app.plugins.plugins;
-			for (let name in plugins) {
+			for (const name in plugins) {
 				try {
 					const m = plugins[name].manifest;
 					this.addCommand({
