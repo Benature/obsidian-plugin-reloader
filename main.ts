@@ -1,6 +1,14 @@
-import { Notice, Plugin } from 'obsidian';
+import { App, Notice, Plugin, PluginManifest } from 'obsidian';
 
+interface PluginManager {
+	plugins: Record<string, { manifest: PluginManifest }>;
+	disablePlugin(id: string): Promise<void>;
+	enablePlugin(id: string): Promise<void>;
+}
 
+function getPluginManager(app: App): PluginManager {
+	return (app as App & { plugins: PluginManager }).plugins;
+}
 
 export default class Reloader extends Plugin {
 
@@ -15,8 +23,7 @@ export default class Reloader extends Plugin {
 		})
 
 		window.setTimeout(() => {
-			// @ts-ignore
-			const plugins = this.app.plugins.plugins;
+			const plugins = getPluginManager(this.app).plugins;
 			for (const name in plugins) {
 				try {
 					const m = plugins[name].manifest;
@@ -38,8 +45,7 @@ export default class Reloader extends Plugin {
 	onunload() { }
 
 	async reloadPlugin(pluginName: string): Promise<void> {
-		// @ts-ignore
-		const { plugins } = this.app;
+		const plugins = getPluginManager(this.app);
 		try {
 			await plugins.disablePlugin(pluginName);
 			await plugins.enablePlugin(pluginName);
